@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>公考计划跟踪器</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>公考计划跟踪器</h1>
+            <p>120天行测与申论学习计划</p>
+        </header>
+
+        <main>
+            <section class="progress-overview">
+                <div class="progress-bar-container">
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="overallProgress"></div>
+                    </div>
+                    <div class="progress-text">总进度: <span id="progressPercent">0%</span></div>
+                </div>
+                <div class="progress-stats">
+                    <div class="stat-box">
+                        <div class="stat-number" id="completedDays">0</div>
+                        <div class="stat-label">已完成天数</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-number" id="currentDay">1</div>
+                        <div class="stat-label">当前天数</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-number" id="remainingDays">119</div>
+                        <div class="stat-label">剩余天数</div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="plan-details">
+                <h2>今日计划 (<span id="todayDate"></span>)</h2>
+                <div class="daily-plan" id="dailyPlan">
+                    <!-- Daily plan will be populated by JavaScript -->
+                </div>
+
+                <div class="actions">
+                    <button id="markCompleteBtn" class="btn btn-primary">标记为完成</button>
+                    <button id="resetBtn" class="btn btn-secondary">重置今日状态</button>
+                </div>
+            </section>
+
+            <section class="calendar-view">
+                <h2>计划日历</h2>
+                <div class="calendar-controls">
+                    <button id="prevWeekBtn" class="btn btn-small">&lt; 上周</button>
+                    <span id="currentWeekText">第1-7天</span>
+                    <button id="nextWeekBtn" class="btn btn-small">下周 &gt;</button>
+                </div>
+                <div class="week-grid" id="weekGrid">
+                    <!-- Week grid will be populated by JavaScript -->
+                </div>
+            </section>
+        </main>
+
+        <div id="loadingMessage" class="loading-message" style="display: none;">
+            正在加载计划数据，请稍候...
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
