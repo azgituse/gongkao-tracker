@@ -175,34 +175,54 @@ header p {
 
 /* 为更小的屏幕进一步优化 */
 @media (max-width: 480px) {
+    .progress-stats {
+        flex-direction: row !important;
+        justify-content: space-around !important;
+        gap: 2px !important;
+    }
+
     .stat-box {
-        min-width: 65px;
-        padding: 8px 3px;
+        min-width: 55px !important;
+        padding: 8px 1px !important;
     }
 
     .stat-number {
-        font-size: 1.3rem;
+        font-size: 1.2rem !important;
     }
 
     .stat-label {
-        font-size: 0.7rem;
+        font-size: 0.65rem !important;
     }
 
     .btn {
-        padding: 9px 12px;
-        font-size: 0.85rem;
+        padding: 8px 4px !important;
+        font-size: 0.8rem !important;
+    }
+
+    .calendar-controls {
+        flex-wrap: nowrap !important;
+    }
+
+    #currentWeekText {
+        font-size: 0.75rem !important;
+        padding: 0 2px !important;
+    }
+
+    .btn-small {
+        padding: 5px 7px !important;
+        font-size: 0.7rem !important;
     }
 
     .week-grid {
-        grid-template-columns: repeat(auto-fit, minmax(70px, 1fr)); /* 更小的网格 */
+        grid-template-columns: repeat(7, 1fr) !important; /* 保持7列显示 */
     }
 
     .day-number {
-        font-size: 1.1rem;
+        font-size: 0.9rem !important;
     }
 
     .day-title-sm {
-        font-size: 0.65rem;
+        font-size: 0.55rem !important;
     }
 }
 
@@ -340,13 +360,12 @@ header p {
     justify-content: space-between;
     align-items: center;
     margin-bottom: 20px;
-    flex-wrap: wrap;
-    gap: 10px; /* 添加间隙 */
+    flex-wrap: nowrap; /* 防止换行 */
 }
 
 .calendar-controls button {
-    min-width: 60px; /* 确保按钮有最小宽度 */
-    padding: 8px 12px; /* 调整内边距 */
+    min-width: 60px;
+    padding: 8px 12px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -356,6 +375,7 @@ header p {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
     gap: 15px;
+    justify-content: center; /* 让网格居中对齐 */
 }
 
 .day-card {
@@ -405,25 +425,97 @@ header p {
     }
 
     header h1 {
-        font-size: 2rem;
+        font-size: 1.8rem;
     }
 
     .progress-stats {
-        flex-direction: column;
-        align-items: center;
+        flex-direction: row !important; /* 强制保持横向排列 */
+        justify-content: space-around !important;
+        align-items: center !important;
+        gap: 5px !important;
+        width: 100% !important;
+    }
+
+    .stat-box {
+        min-width: 60px !important;
+        padding: 10px 2px !important;
+        flex: 1 !important;
+        margin: 0 !important;
+    }
+
+    .stat-number {
+        font-size: 1.3rem !important;
+    }
+
+    .stat-label {
+        font-size: 0.7rem !important;
     }
 
     .actions {
-        flex-direction: column;
+        flex-direction: row !important; /* 改为横向排列 */
+        justify-content: center !important;
+        align-items: center !important;
+        gap: 10px !important;
+        width: 100% !important;
+        padding: 0 10px !important;
     }
 
     .btn {
-        width: 100%;
+        flex: 1 !important;
+        padding: 10px 5px !important;
+        font-size: 0.85rem !important;
+        min-width: 0 !important;
+        max-width: 50% !important;
+    }
+
+    .btn-primary {
+        order: 2; /* 将标记完成按钮移到右边 */
+    }
+
+    .btn-secondary {
+        order: 1; /* 将重置按钮移到左边 */
+    }
+
+    .calendar-controls {
+        flex-direction: row !important;
+        justify-content: space-between !important;
+        align-items: center !important;
+        gap: 5px !important;
+        width: 100% !important;
+    }
+
+    #currentWeekText {
+        flex: 1 !important;
+        text-align: center !important;
+        font-size: 0.8rem !important;
+        min-width: 0 !important;
+        padding: 0 5px !important;
+    }
+
+    .btn-small {
+        padding: 6px 8px !important;
+        font-size: 0.75rem !important;
+        min-width: auto !important;
+        flex: 0 0 auto !important;
     }
 
     .week-grid {
-        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-        gap: 10px;
+        grid-template-columns: repeat(7, 1fr) !important; /* 确保显示7列 */
+        gap: 5px !important;
+        justify-content: center !important;
+    }
+
+    .day-card {
+        padding: 8px 2px !important;
+        margin: 0 !important;
+    }
+
+    .day-number {
+        font-size: 1rem !important;
+    }
+
+    .day-title-sm {
+        font-size: 0.6rem !important;
     }
 }
 
