@@ -200,6 +200,7 @@ class GongKaoTracker {
 
             this.saveProgress();
             this.updateUI();
+            this.updateCalendarView(); // 更新日历视图中对应卡片的状态
 
             // 添加视觉反馈
             const btn = document.getElementById('markCompleteBtn');
@@ -215,6 +216,26 @@ class GongKaoTracker {
         this.completedDays.delete(this.currentDay);
         this.saveProgress();
         this.updateUI();
+        this.updateCalendarView(); // 更新日历视图中对应卡片的状态
+    }
+
+    // 更新日历视图中对应日期卡片的状态
+    updateCalendarView() {
+        // 更新本周的日历视图
+        const weekGrid = document.getElementById('weekGrid');
+        if (weekGrid) {
+            // 获取当前显示的周的开始日期
+            const currentStart = parseInt(document.getElementById('currentWeekText').textContent.split('-')[0]);
+            const currentEnd = parseInt(document.getElementById('currentWeekText').textContent.split('-')[1].split('天')[0]);
+
+            // 更新对应的卡片状态
+            for (let day = currentStart; day <= currentEnd; day++) {
+                const card = weekGrid.querySelector(`.day-card[data-day="${day}"]`);
+                if (card) {
+                    card.className = `day-card ${this.getCardClass(day)}`;
+                }
+            }
+        }
     }
 
     // 显示上一周

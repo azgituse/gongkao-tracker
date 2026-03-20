@@ -82,7 +82,128 @@ header p {
 .stat-box {
     text-align: center;
     padding: 15px;
-    min-width: 100px;
+    min-width: 80px; /* 缩小最小宽度 */
+    flex: 1; /* 让三个盒子平分空间 */
+    margin: 5px; /* 添加边距以更好地分隔 */
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 10px;
+    }
+
+    header h1 {
+        font-size: 1.8rem; /* 缩小标题字体 */
+    }
+
+    .progress-stats {
+        flex-direction: row; /* 保持横向排列 */
+        justify-content: space-around;
+        align-items: center; /* 居中对齐 */
+        gap: 5px; /* 减小间隔 */
+    }
+
+    .stat-box {
+        min-width: 70px; /* 在小屏幕上进一步缩小 */
+        padding: 10px 5px; /* 调整内边距 */
+    }
+
+    .stat-number {
+        font-size: 1.5rem; /* 适当缩小数字 */
+    }
+
+    .stat-label {
+        font-size: 0.8rem; /* 适当缩小标签文字 */
+    }
+
+    .actions {
+        flex-direction: row; /* 保持横向排列 */
+        justify-content: space-between; /* 两端对齐 */
+        align-items: center; /* 垂直居中 */
+        gap: 10px; /* 减小按钮间距 */
+    }
+
+    .btn {
+        flex: 1; /* 让按钮平分空间 */
+        padding: 10px 15px; /* 调整按钮内边距 */
+        font-size: 0.9rem; /* 适当缩小文字 */
+    }
+
+    .btn-primary {
+        order: 2; /* 将标记完成按钮移到右边 */
+    }
+
+    .btn-secondary {
+        order: 1; /* 将重置按钮移到左边 */
+    }
+
+    .calendar-controls {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        gap: 10px;
+    }
+
+    #currentWeekText {
+        flex: 1; /* 让中间文本占据剩余空间 */
+        text-align: center; /* 文本居中 */
+        font-size: 0.9rem; /* 适当缩小文字 */
+    }
+
+    .btn-small {
+        padding: 8px 12px; /* 调整小按钮的内边距 */
+        font-size: 0.85rem; /* 适当缩小文字 */
+    }
+
+    .week-grid {
+        grid-template-columns: repeat(auto-fit, minmax(80px, 1fr)); /* 适配小屏幕 */
+        gap: 10px; /* 减小网格间距 */
+    }
+
+    .day-card {
+        padding: 10px 5px; /* 调整卡片内边距 */
+    }
+
+    .day-number {
+        font-size: 1.2rem; /* 适当缩小数字 */
+    }
+
+    .day-title-sm {
+        font-size: 0.7rem; /* 适当缩小文本 */
+    }
+}
+
+/* 为更小的屏幕进一步优化 */
+@media (max-width: 480px) {
+    .stat-box {
+        min-width: 65px;
+        padding: 8px 3px;
+    }
+
+    .stat-number {
+        font-size: 1.3rem;
+    }
+
+    .stat-label {
+        font-size: 0.7rem;
+    }
+
+    .btn {
+        padding: 9px 12px;
+        font-size: 0.85rem;
+    }
+
+    .week-grid {
+        grid-template-columns: repeat(auto-fit, minmax(70px, 1fr)); /* 更小的网格 */
+    }
+
+    .day-number {
+        font-size: 1.1rem;
+    }
+
+    .day-title-sm {
+        font-size: 0.65rem;
+    }
 }
 
 .stat-number {
@@ -216,11 +337,19 @@ header p {
 
 .calendar-controls {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
-    gap: 15px;
     margin-bottom: 20px;
     flex-wrap: wrap;
+    gap: 10px; /* 添加间隙 */
+}
+
+.calendar-controls button {
+    min-width: 60px; /* 确保按钮有最小宽度 */
+    padding: 8px 12px; /* 调整内边距 */
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .week-grid {
